@@ -65,13 +65,16 @@ language.model %>% evaluate(input.test, output.test)
 predict.input <- language.model %>% predict_classes(input.test[6001:7000,])
 predict.input
 
-
+# full and partial accuracy results are saved separately (run the network
+# once with each language data set)
 full.acc.results <- data.frame(accuracy = history$metrics$val_acc)
 #partial.acc.results <- data.frame(accuracy = history$metrics$val_acc)
 save(full.acc.results, file = "full-acc.Rdata")
 #save(partial.acc.results, file = "partial-acc.Rdata")
 #load("full-acc.Rdata")
 #load("partial-acc.Rdata")
+
+# once both accuracy results are saved, they can be plotted (uncomment the following code)
 
 # acc <- data.frame(full.language.accuracy = full.acc.results$accuracy,
 #                   partial.language.accuracy = partial.acc.results$accuracy)
